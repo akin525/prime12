@@ -19,11 +19,8 @@
                     <select  name="id" class="text-success form-control" required="">
                         <option value="">---------</option>
                         @foreach($data as $datas)
-                            @if($user->apikey="")
+
                                 <option value="{{$datas->id}}">{{$datas->network}}{{$datas->plan}}{{$datas->tamount}}
-                            @else
-                                <option value="{{$datas->id}}">{{$datas->network}}{{$datas->plan}}{{$datas->ramount}}
-                                    @endif
                                 </option>
                                 @endforeach
 
