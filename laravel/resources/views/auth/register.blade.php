@@ -35,11 +35,11 @@
                                 </div>
                                 <h4 class="text-center mb-4">Sign up your account</h4>
 
-
+<center>
 
                                 <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <x-auth-validation-errors class="alert-danger text-danger" :errors="$errors" />
+</center>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-group">
