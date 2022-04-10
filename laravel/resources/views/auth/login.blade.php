@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>AWM Login in</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/log.png')}}">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
@@ -32,7 +32,7 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img src="{{asset('images/logo-full.png')}}" alt="">
+                                    <img width="100" src="{{asset('images/log.png')}}" alt="">
                                 </div>
 <center>
                                 <!-- Session Status -->

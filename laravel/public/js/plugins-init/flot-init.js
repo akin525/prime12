@@ -3,7 +3,7 @@
 
 
  var dzChartlist = function(){
-	
+
 	var screenWidth = $(window).width();
 
 	var flotBar1 = function(){
@@ -14,7 +14,7 @@
 				bars: {
 					show: true,
 					lineWidth: 0,
-					fillColor: '#EB8153'
+					fillColor: '#000066'
 				}
 			},
 			grid: {
@@ -37,14 +37,14 @@
 			}
 		});
 	}
-	
+
 	var flotBar2 = function(){
 		$.plot("#flotBar2", [{
 			data: [[0, 3], [2, 8], [4, 5], [6, 13], [8, 5], [10, 7], [12, 8], [14, 10]],
 			bars: {
 				show: true,
 				lineWidth: 0,
-				fillColor: '#EB8153'
+				fillColor: '#000066'
 			}
 		}, {
 			data: [[1, 5], [3, 7], [5, 10], [7, 7], [9, 9], [11, 5], [13, 4], [15, 6]],
@@ -53,7 +53,7 @@
 				lineWidth: 0,
 				fillColor: '#6418C3'
 			}
-		}], 
+		}],
 		{
 			grid: {
 				borderWidth: 1,
@@ -75,7 +75,7 @@
 			}
 		});
 	}
-	
+
 	var flotLine1 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
@@ -84,7 +84,7 @@
 			{
 				data: newCust,
 				label: 'New Customer',
-				color: '#EB8153'
+				color: '#000066'
 			},
 			{
 				data: retCust,
@@ -133,16 +133,16 @@
 			}
 		});
 	}
-	
+
 	var flotLine2 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotLine2'), [
 			{
 				data: newCust,
 				label: 'New Customer',
-				color: '#EB8153'
+				color: '#000066'
 			},
 			{
 				data: retCust,
@@ -194,18 +194,18 @@
 					color: '#fff'
 				}
 			}
-		});		
+		});
 	}
-	
+
 	var flotLine3 = function(){
 		var newCust2 = [[0, 10], [1, 7], [2, 8], [3, 9], [4, 6], [5, 5], [6, 7]];
 		var retCust2 = [[0, 8], [1, 5], [2, 6], [3, 8], [4, 4], [5, 3], [6, 6]];
-		
+
 		var plot = $.plot($('#flotLine3'), [
 			{
 				data: newCust2,
 				label: 'New Customer',
-				color: '#EB8153'
+				color: '#000066'
 			},
 			{
 				data: retCust2,
@@ -254,16 +254,16 @@
 			}
 		});
 	}
-	
+
 	var flotArea1 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotArea1'), [
 			{
 				data: newCust,
 				label: 'New Customer',
-				color: '#EB8153'
+				color: '#000066'
 			},
 			{
 				data: retCust,
@@ -313,16 +313,16 @@
 			}
 		});
 	}
-	
+
 	var flotArea2 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotArea2'), [
 			{
 				data: newCust,
 				label: 'New Customer',
-				color: '#EB8153'
+				color: '#000066'
 			},
 			{
 				data: retCust,
@@ -376,7 +376,7 @@
 			}
 		});
 	}
-	
+
 	var flotLine4 = function(){
 		var previousPoint = null;
 
@@ -446,7 +446,7 @@
 		var updateInterval = 1000;
 
 		var plot4 = $.plot('#flotRealtime1', [getRandomData()], {
-			colors: ['#EB8153'],
+			colors: ['#000066'],
 			series: {
 				lines: {
 					show: true,
@@ -483,7 +483,7 @@
 			setTimeout(update_plot4, updateInterval);
 		}
 	}
-	
+
 	var flotRealtime2 = function(){
 		var data = [], totalPoints = 50;
 
@@ -506,12 +506,12 @@
 			}
 			return res;
 		}
-		
+
 		// Set up the control widget
 		var updateInterval = 1000;
-		
+
 		var plot5 = $.plot('#flotRealtime2', [getRandomData()], {
-			colors: ['#EB8153'],
+			colors: ['#000066'],
 			series: {
 				lines: {
 					show: true,
@@ -543,9 +543,9 @@
 			}
 		});
 
-		
 
-		
+
+
 		update_plot5();
 		function update_plot5() {
 			plot5.setData([getRandomData()]);
@@ -553,26 +553,26 @@
 			setTimeout(update_plot5, updateInterval);
 		}
 	}
-	
+
 	/* Function ============ */
 	return {
 		init:function(){
 		},
-		
-		
+
+
 		load:function(){
-			flotBar1();	
+			flotBar1();
 			flotBar2();
-			flotLine1();	
-			flotLine2();	
-			flotLine3();		
+			flotLine1();
+			flotLine2();
+			flotLine3();
 			flotArea1();
 			flotArea2();
 			flotLine4();
 			flotRealtime1();
 			flotRealtime2();
 		},
-		
+
 		resize:function(){
 		}
 	}
@@ -580,13 +580,13 @@
 }();
 
 
-	
+
 jQuery(window).on('load',function(){
 	dzChartlist.load();
 });
 
 jQuery(window).on('resize',function(){
 	dzChartlist.resize();
-});     
+});
 
 })(jQuery);

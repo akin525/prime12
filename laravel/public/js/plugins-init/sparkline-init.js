@@ -1,66 +1,66 @@
 (function($) {
-    "use strict" 
-   
+    "use strict"
+
  var dzSparkLine = function(){
-    
+
 	var screenWidth = $(window).width();
-	
+
 	function getSparkLineGraphBlockSize(selector)
 	{
 		var screenWidth = $(window).width();
 		var graphBlockSize = '100%';
-		
+
 		if(screenWidth <= 768)
 			{
 				screenWidth = (screenWidth < 300 )?screenWidth:300;
-				
+
 				var blockWidth  = jQuery(selector).parent().innerWidth() - jQuery(selector).parent().width();
-		
+
 				blockWidth = Math.abs(blockWidth);
-				
-				var graphBlockSize = screenWidth - blockWidth - 10;	
+
+				var graphBlockSize = screenWidth - blockWidth - 10;
 			}
-	
-		
-		
+
+
+
 		return graphBlockSize;
-		
+
 	}
-	
+
 	var sparkLineDash = function(){
 		// Line Chart
-		if(jQuery('#sparklinedash').length > 0 ){	 
+		if(jQuery('#sparklinedash').length > 0 ){
 			 $("#sparklinedash").sparkline([10, 15, 26, 27, 28, 31, 34, 40, 41, 44, 49, 64, 68, 69, 72], {
 				type: "bar",
 				height: "50",
 				barWidth: "4",
 				resize: !0,
 				barSpacing: "5",
-				barColor: "#EB8153"
+				barColor: "#000066"
 			});
 		}
 	}
-	
+
 	var sparkLine8 = function(){
-		if(jQuery('#sparkline8').length > 0 ){	
+		if(jQuery('#sparkline8').length > 0 ){
 			$("#sparkline8").sparkline([79, 72, 29, 6, 52, 32, 73, 40, 14, 75, 77, 39, 9, 15, 10], {
 				type: "line",
 				//width: "100%",
 				width: getSparkLineGraphBlockSize('#sparkline8'),
 				height: "50",
-				lineColor: "#EB8153",
+				lineColor: "#000066",
 				fillColor: "rgba(235, 129, 83, .5)",
-				minSpotColor: "#EB8153",
-				maxSpotColor: "#EB8153",
-				highlightLineColor: "#EB8153",
-				highlightSpotColor: "#EB8153",
-				
+				minSpotColor: "#000066",
+				maxSpotColor: "#000066",
+				highlightLineColor: "#000066",
+				highlightSpotColor: "#000066",
+
 			});
 		}
 	}
-	
+
 	var sparkLine9 = function(){
-		if(jQuery('#sparkline9').length > 0 ){	
+		if(jQuery('#sparkline9').length > 0 ){
 			$("#sparkline9").sparkline([27, 31, 35, 28, 45, 52, 24, 4, 50, 11, 54, 49, 72, 59, 75], {
 				type: "line",
 				//width: "100%",
@@ -78,7 +78,7 @@
 
     // Bar Chart
 	var sparkBar = function(){
-		if(jQuery('#spark-bar').length > 0 ){	
+		if(jQuery('#spark-bar').length > 0 ){
 			$("#spark-bar").sparkline([33, 22, 68, 54, 8, 30, 74, 7, 36, 5, 41, 19, 43, 29, 38], {
 				type: "bar",
 				height: "200",
@@ -86,11 +86,11 @@
 				barSpacing: 7,
 				barColor: "#6418C3"
 			});
-		}	
+		}
 	}
-		
+
 	var sparkBar2 = function(){
-		if(jQuery('#spark-bar-2').length > 0 ){	
+		if(jQuery('#spark-bar-2').length > 0 ){
 			$("#spark-bar-2").sparkline([33, 22, 68, 54, 8, 30, 74, 7, 36, 5, 41, 19, 43, 29, 38], {
 				type: "bar",
 				height: "140",
@@ -99,11 +99,11 @@
 				barSpacing: 10,
 				barColor: "rgb(255, 206, 120)"
 			});
-		}	
+		}
 	}
-		
+
 	var stackedBarChart = function(){
-		if(jQuery('#StackedBarChart').length > 0 ){	
+		if(jQuery('#StackedBarChart').length > 0 ){
 			$('#StackedBarChart').sparkline([
 				[1, 4, 2],
 				[2, 3, 2],
@@ -113,26 +113,26 @@
 					type: "bar",
 					height: "200",
 					barWidth: 10,
-					barSpacing: 7, 
-					stackedBarColor: ['#EB8153', '#6418C3', '#ff5c00']
+					barSpacing: 7,
+					stackedBarColor: ['#000066', '#6418C3', '#ff5c00']
 				});
 		}
 	}
-		
+
 	var triState = function(){
-		if(jQuery('#tristate').length > 0 ){	
+		if(jQuery('#tristate').length > 0 ){
 
 			$("#tristate").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
 				type: 'tristate',
 				height: "200",
 				barWidth: 10,
-				barSpacing: 7, 
-				colorMap: ['#EB8153', '#6418C3', '#ff5c00'], 
+				barSpacing: 7,
+				colorMap: ['#000066', '#6418C3', '#ff5c00'],
 				negBarColor: '#ff5c00'
 			});
 		}
 	}
-		
+
 	var compositeBar = function(){
 		// Composite
 		if(jQuery('#composite-bar').length > 0 ){
@@ -142,20 +142,20 @@
 				barWidth: "10",
 				resize: true,
 				// barSpacing: "7",
-				barColor: "#EB8153", 
+				barColor: "#000066",
 				width: '100%',
-				
+
 			});
-		}	
-	}	
-	
+		}
+	}
+
 	var sparklineCompositeChart = function(){
 		if(jQuery('#sparkline-composite-chart').length > 0 ){
 			$("#sparkline-composite-chart").sparkline([5, 6, 7, 2, 0, 3, 6, 8, 1, 2, 2, 0, 3, 6], {
 				type: 'line',
 				width: '100%',
-				height: '200', 
-				barColor: '#6418C3', 
+				height: '200',
+				barColor: '#6418C3',
 				colorMap: ['#6418C3', '#ff5c00']
 			});
 		}
@@ -172,7 +172,7 @@
 			});
 		}
 	}
-		
+
 	var sparkLine11 = function(){
 		if(jQuery('#sparkline11').length > 0 ){
 			//Pie
@@ -182,9 +182,9 @@
 				resize: !0,
 				sliceColors: ["rgba(192, 10, 39, .5)", "rgba(0, 0, 128, .5)", "rgba(235, 129, 83, .5)"]
 			});
-		}	
-	}	
-	
+		}
+	}
+
 	var sparkLine12 = function(){
 		if(jQuery('#sparkline12').length > 0 ){
 			//Pie
@@ -194,9 +194,9 @@
 				resize: !0,
 				sliceColors: ["rgba(179, 204, 255, 1)", "rgba(157, 189, 255, 1)", "rgba(112, 153, 237, 1)"]
 			});
-		}	
-	}	
-	
+		}
+	}
+
 	var bulletChart = function(){
 		if(jQuery('#bullet-chart').length > 0 ){
 			// Bullet
@@ -204,17 +204,17 @@
 				type: 'bullet',
 				height: '100',
 				width: '100%',
-				targetOptions: { // Options related with look and position of targets 
-					width: '100%',        // The width of the target 
-					height: 3,            // The height of the target 
-					borderWidth: 0,       // The border width of the target 
-					borderColor: 'black', // The border color of the target 
-					color: 'black'        // The color of the target 
+				targetOptions: { // Options related with look and position of targets
+					width: '100%',        // The width of the target
+					height: 3,            // The height of the target
+					borderWidth: 0,       // The border width of the target
+					borderColor: 'black', // The border color of the target
+					color: 'black'        // The color of the target
 				}
 			});
 		}
 	}
-		
+
 	var boxPlot = function(){
 		if(jQuery('#boxplot').length > 0 ){
 			//Boxplot
@@ -223,20 +223,20 @@
 			});
 		}
 	}
-	
-	
+
+
     /* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
-				sparkLineDash();	
+				sparkLineDash();
 				sparkLine8();
-				sparkLine9();	
-				sparkBar();	
-				sparkBar2();		
+				sparkLine9();
+				sparkBar();
+				sparkBar2();
 				stackedBarChart();
 				triState();
 				compositeBar();
@@ -244,15 +244,15 @@
 				bulletChart();
 				sparkLine11();
 				sparkLine12();
-				boxPlot(); 
+				boxPlot();
 			},
-			
+
 			resize:function(){
-				sparkLineDash();	
+				sparkLineDash();
 				sparkLine8();
-				sparkLine9();	
-				sparkBar();	
-				sparkBar2();		
+				sparkLine9();
+				sparkBar();
+				sparkBar2();
 				stackedBarChart();
 				triState();
 				compositeBar();
@@ -263,20 +263,20 @@
 				boxPlot();
 			}
 		}
-	
+
 	}();
 
-	
+
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
-			dzSparkLine.resize();	
+			dzSparkLine.resize();
 		}, 1000);
 	});
 
 	jQuery(window).on('resize',function(){
 		setTimeout(function(){
-			dzSparkLine.resize();	
+			dzSparkLine.resize();
 		}, 1000);
-	});     
+	});
 
 })(jQuery);

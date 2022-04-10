@@ -5,7 +5,7 @@
     Name                 : Zenix
     Author               : DexignZone
     Author Portfolio     : https://themeforest.net/user/dexignzone/portfolio
-    
+
 
 
     Table of Sass Contents
@@ -17,7 +17,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -73,7 +73,7 @@
 @import url(../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(../vendor/metismenu/css/metisMenu.min.css);
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -249,7 +249,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --success: #68CF29;
   --info: #51A6F5;
@@ -362,7 +362,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #eb8153;
+  color: #000066;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -2206,8 +2206,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #212529;
-  background-color: #eb8153;
-  border-color: #eb8153; }
+  background-color: #000066;
+  border-color: #000066; }
   .btn-primary:hover {
     color: #fff;
     background-color: #e76831;
@@ -2216,8 +2216,8 @@ fieldset:disabled a.btn {
     box-shadow: 0 0 0 0.2rem rgba(205, 115, 77, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #212529;
-    background-color: #eb8153;
-    border-color: #eb8153; }
+    background-color: #000066;
+    border-color: #000066; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
     background-color: #e66025;
@@ -2373,21 +2373,21 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(132, 132, 132, 0.5); }
 
 .btn-outline-primary {
-  color: #eb8153;
-  border-color: #eb8153; }
+  color: #000066;
+  border-color: #000066; }
   .btn-outline-primary:hover {
     color: #212529;
-    background-color: #eb8153;
-    border-color: #eb8153; }
+    background-color: #000066;
+    border-color: #000066; }
   .btn-outline-primary:focus, .btn-outline-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(235, 129, 83, 0.5); }
   .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-    color: #eb8153;
+    color: #000066;
     background-color: transparent; }
   .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
     color: #212529;
-    background-color: #eb8153;
-    border-color: #eb8153; }
+    background-color: #000066;
+    border-color: #000066; }
     .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(235, 129, 83, 0.5); }
 
@@ -2526,7 +2526,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #eb8153;
+  color: #000066;
   text-decoration: none; }
   .btn-link:hover {
     color: #d85319;
@@ -2759,7 +2759,7 @@ input[type="button"].btn-block {
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #eb8153; }
+    background-color: #000066; }
   .dropdown-item.disabled, .dropdown-item:disabled {
     color: #6c757d;
     pointer-events: none;
@@ -3027,8 +3027,8 @@ input[type="button"].btn-block {
   opacity: 0; }
   .custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
-    border-color: #eb8153;
-    background-color: #eb8153; }
+    border-color: #000066;
+    background-color: #000066; }
   .custom-control-input:focus ~ .custom-control-label::before {
     box-shadow: 0 0 0 0.2rem rgba(235, 129, 83, 0.25); }
   .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
@@ -3072,8 +3072,8 @@ input[type="button"].btn-block {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"); }
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #eb8153;
-  background-color: #eb8153; }
+  border-color: #000066;
+  background-color: #000066; }
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e"); }
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
@@ -3232,7 +3232,7 @@ input[type="button"].btn-block {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
-    background-color: #eb8153;
+    background-color: #000066;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3253,7 +3253,7 @@ input[type="button"].btn-block {
   .custom-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #eb8153;
+    background-color: #000066;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3277,7 +3277,7 @@ input[type="button"].btn-block {
     margin-top: 0;
     margin-right: 0.2rem;
     margin-left: 0.2rem;
-    background-color: #eb8153;
+    background-color: #000066;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3369,7 +3369,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #eb8153; }
+  background-color: #000066; }
 
 .nav-fill .nav-item {
   flex: 1 1 auto;
@@ -3852,7 +3852,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #eb8153;
+  color: #000066;
   background-color: #fff;
   border: 1px solid #dee2e6; }
   .page-link:hover {
@@ -3876,8 +3876,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #eb8153;
-  border-color: #eb8153; }
+  background-color: #000066;
+  border-color: #000066; }
 .page-item.disabled .page-link {
   color: #6c757d;
   pointer-events: none;
@@ -3937,7 +3937,7 @@ input[type="button"].btn-block {
 
 .badge-primary {
   color: #212529;
-  background-color: #eb8153; }
+  background-color: #000066; }
   a.badge-primary:hover, a.badge-primary:focus {
     color: #212529;
     background-color: #e66025; }
@@ -4143,7 +4143,7 @@ input[type="button"].btn-block {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #eb8153;
+  background-color: #000066;
   transition: width 0.6s ease; }
   @media (prefers-reduced-motion: reduce) {
     .progress-bar {
@@ -4206,8 +4206,8 @@ input[type="button"].btn-block {
   .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #eb8153;
-    border-color: #eb8153; }
+    background-color: #000066;
+    border-color: #000066; }
 
 .list-group-horizontal {
   flex-direction: row; }
@@ -5015,7 +5015,7 @@ a.close.disabled {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #eb8153 !important; }
+  background-color: #000066 !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -5115,7 +5115,7 @@ button.bg-dark:focus {
   border-left: 0 !important; }
 
 .border-primary {
-  border-color: #eb8153 !important; }
+  border-color: #000066 !important; }
 
 .border-secondary {
   border-color: #6418C3 !important; }
@@ -8353,7 +8353,7 @@ button.bg-dark:focus {
   color: #fff !important; }
 
 .text-primary {
-  color: #eb8153 !important; }
+  color: #000066 !important; }
 
 a.text-primary:hover, a.text-primary:focus {
   color: #d85319 !important; }
@@ -12868,7 +12868,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   width: 50vw; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -13054,7 +13054,7 @@ The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -13280,7 +13280,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sidebar-style="mini"] .deznav li a.has-arrow::after {
     transform: rotate(-45deg) translateY(-50%); } }
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -14196,7 +14196,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   .sidebar-right #header_color_3 + label,
   .sidebar-right #sidebar_color_3 + label,
   .sidebar-right #primary_color_3 + label {
-    background-color: #eb8153; }
+    background-color: #000066; }
   .sidebar-right #nav_header_color_4 + label,
   .sidebar-right #header_color_4 + label,
   .sidebar-right #sidebar_color_4 + label,
@@ -14760,7 +14760,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-nav-headerbg="color_3"][data-theme-version="dark"],
 [data-nav-headerbg="color_3"] {
-  --nav-headbg: #eb8153; }
+  --nav-headbg: #000066; }
   [data-nav-headerbg="color_3"][data-theme-version="dark"] .nav-header .svg-logo-path,
   [data-nav-headerbg="color_3"] .nav-header .svg-logo-path {
     fill: #fff; }
@@ -14769,7 +14769,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     fill: #fff; }
   [data-nav-headerbg="color_3"][data-theme-version="dark"] .nav-header .logo-abbr .svg-logo-path,
   [data-nav-headerbg="color_3"] .nav-header .logo-abbr .svg-logo-path {
-    fill: #eb8153; }
+    fill: #000066; }
   [data-nav-headerbg="color_3"][data-theme-version="dark"] .nav-header .hamburger .line,
   [data-nav-headerbg="color_3"] .nav-header .hamburger .line {
     background: #fff; }
@@ -15185,7 +15185,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sibebarbg="color_3"][data-theme-version="dark"],
 [data-sibebarbg="color_3"] {
-  --sidebar-bg: #eb8153; }
+  --sidebar-bg: #000066; }
   [data-sibebarbg="color_3"][data-theme-version="dark"] .nav-label,
   [data-sibebarbg="color_3"] .nav-label {
     border-color: rgba(255, 255, 255, 0.1);
@@ -15244,7 +15244,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sibebarbg="color_3"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu ul a:hover,
   [data-sibebarbg="color_3"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu ul a:focus,
   [data-sibebarbg="color_3"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu ul a.mm-active {
-    color: #eb8153;
+    color: #000066;
     background-color: transparent; }
   [data-sibebarbg="color_3"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu > li.mm-active > a, [data-sibebarbg="color_3"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu > li:hover > a,
   [data-sibebarbg="color_3"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav .metismenu > li.mm-active > a,
@@ -15257,7 +15257,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sibebarbg="color_3"][data-sidebar-style="mini"][data-layout="vertical"] .deznav .metismenu ul a:hover,
   [data-sibebarbg="color_3"][data-sidebar-style="mini"][data-layout="vertical"] .deznav .metismenu ul a:focus,
   [data-sibebarbg="color_3"][data-sidebar-style="mini"][data-layout="vertical"] .deznav .metismenu ul a.mm-active {
-    color: #eb8153;
+    color: #000066;
     background-color: transparent; }
   [data-sibebarbg="color_3"][data-theme-version="dark"][data-sidebar-style="mini"][data-layout="vertical"] .deznav .metismenu > li > a:before,
   [data-sibebarbg="color_3"][data-sidebar-style="mini"][data-layout="vertical"] .deznav .metismenu > li > a:before {
@@ -15294,7 +15294,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sibebarbg="color_3"][data-sidebar-style="modern"][data-layout="vertical"] .deznav .metismenu ul a:hover,
   [data-sibebarbg="color_3"][data-sidebar-style="modern"][data-layout="vertical"] .deznav .metismenu ul a:focus,
   [data-sibebarbg="color_3"][data-sidebar-style="modern"][data-layout="vertical"] .deznav .metismenu ul a.mm-active {
-    color: #eb8153;
+    color: #000066;
     background-color: transparent; }
   [data-sibebarbg="color_3"][data-theme-version="dark"][data-sidebar-style="modern"][data-layout="vertical"] .deznav .metismenu > li > a,
   [data-sibebarbg="color_3"][data-sidebar-style="modern"][data-layout="vertical"] .deznav .metismenu > li > a {
@@ -15327,13 +15327,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a:hover,
   [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a:focus,
   [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a.mm-active {
-    color: #eb8153;
+    color: #000066;
     background-color: transparent; }
     [data-sibebarbg="color_3"][data-theme-version="dark"][data-layout="horizontal"] .deznav .metismenu ul a:hover:before, [data-sibebarbg="color_3"][data-theme-version="dark"][data-layout="horizontal"] .deznav .metismenu ul a:focus:before, [data-sibebarbg="color_3"][data-theme-version="dark"][data-layout="horizontal"] .deznav .metismenu ul a.mm-active:before,
     [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a:hover:before,
     [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a:focus:before,
     [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a.mm-active:before {
-      border-color: #eb8153; }
+      border-color: #000066; }
   [data-sibebarbg="color_3"][data-theme-version="dark"][data-layout="horizontal"] .deznav .metismenu ul a:before,
   [data-sibebarbg="color_3"][data-layout="horizontal"] .deznav .metismenu ul a:before {
     border-color: #888ea8; }
@@ -17542,7 +17542,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_3"][data-theme-version="dark"],
 [data-headerbg="color_3"] {
-  --headerbg: #eb8153; }
+  --headerbg: #000066; }
   [data-headerbg="color_3"][data-theme-version="dark"] .pulse-css,
   [data-headerbg="color_3"] .pulse-css {
     background-color: white; }
@@ -18206,7 +18206,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --rgba-primary-9: rgba(25, 30, 58, 0.9); }
 
 [data-primary="color_3"] {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-dark: #943911;
@@ -18413,7 +18413,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   font-family: 'HelveticaNeue'; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -18535,7 +18535,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     border-color: transparent transparent rgba(0, 0, 0, 0.15) transparent; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -20256,7 +20256,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   border: none;
   overflow: hidden; }
 
-/* 
+/*
 svg text {
     font-weight: 600 !important;
 } */
@@ -20608,7 +20608,7 @@ svg text {
     border-color: #473F72; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -21056,7 +21056,7 @@ input[type="checkbox"]:checked:after {
   color: #7e7e7e; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -21330,7 +21330,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   border-bottom-right-radius: 0; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -21375,7 +21375,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     font-weight: 700; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -21428,7 +21428,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   font-size: 2rem; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
@@ -26525,7 +26525,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
     margin-bottom: -130px;
 	background-size:cover;
 	&>div{
-		
+
 	}
 } */
 .plus-icon {
@@ -30276,7 +30276,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   padding-right: 9.375rem; }
 
 :root {
-  --primary: #eb8153;
+  --primary: #000066;
   --secondary: #6418C3;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;

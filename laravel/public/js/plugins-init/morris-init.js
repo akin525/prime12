@@ -2,9 +2,9 @@
     "use strict"
 
 	var dzMorris = function(){
-		
+
 		var screenWidth = $(window).width();
-		
+
 		var setChartWidth = function(){
 			if(screenWidth <= 768)
 			{
@@ -13,7 +13,7 @@
 				jQuery('.morris_chart_height').css('min-width',chartBlockWidth - 31);
 			}
 		}
-		
+
 		var donutChart = function(){
 			Morris.Donut({
 				element: 'morris_donught',
@@ -30,12 +30,12 @@
 				}],
 				resize: true,
 				redraw: true,
-				colors: ['#EB8153', 'rgb(255, 92, 0)', '#6418C3'],
+				colors: ['#000066', 'rgb(255, 92, 0)', '#6418C3'],
 				//responsive:true,
-				
+
 			});
 		}
-		
+
 		var lineChart = function(){
 			//line chart
 			let line = new Morris.Line({
@@ -91,9 +91,9 @@
 				hideHover: 'auto',
 				pointSize: 0,
 				axes: false
-			});	
+			});
 		}
-		
+
 		var lineChart2 = function(){
 			//Area chart
 			Morris.Area({
@@ -142,17 +142,17 @@
 				labels: ['Phone', 'Windows', 'Mac'],
 				pointSize: 3,
 				fillOpacity: 0,
-				pointStrokeColors: ['#FF3E3E', '#6418C3', '#EB8153'],
+				pointStrokeColors: ['#FF3E3E', '#6418C3', '#000066'],
 				behaveLikeLine: true,
 				gridLineColor: 'transparent',
 				lineWidth: 3,
 				hideHover: 'auto',
-				lineColors: ['rgb(255, 62, 62)', 'rgb(0, 171, 197)', '#EB8153'],
+				lineColors: ['rgb(255, 62, 62)', 'rgb(0, 171, 197)', '#000066'],
 				resize: true
 
 			});
 		}
-		
+
 		var barChart = function(){
 			if(jQuery('#morris_bar').length > 0)
 			{
@@ -198,97 +198,97 @@
 					xkey: 'y',
 					ykeys: ['a', 'b', 'c'],
 					labels: ['A', 'B', 'C'],
-					barColors: ['#EB8153', '#6418C3', '#ff9f00'],
+					barColors: ['#000066', '#6418C3', '#ff9f00'],
 					hideHover: 'auto',
 					gridLineColor: 'transparent',
 					resize: true,
 					barSizeRatio: 0.25,
-				});	
+				});
 			}
 		}
-		
+
 		var barStalkChart = function(){
 			//bar chart
 			Morris.Bar({
 				element: 'morris_bar_stalked',
 				data: [{
 					y: 'S',
-					a: 66, 
+					a: 66,
 					b: 34
 				}, {
 					y: 'M',
-					a: 75, 
+					a: 75,
 					b: 25
 				}, {
 					y: 'T',
-					a: 50, 
+					a: 50,
 					b: 50
 				}, {
 					y: 'W',
-					a: 75, 
+					a: 75,
 					b: 25
 				}, {
 					y: 'T',
-					a: 50, 
+					a: 50,
 					b: 50
 				}, {
 					y: 'F',
-					a: 16, 
+					a: 16,
 					b: 84
 				}, {
 					y: 'S',
-					a: 70, 
+					a: 70,
 					b: 30
 				}, {
 					y: 'S',
-					a: 30, 
+					a: 30,
 					b: 70
 				}, {
 					y: 'M',
-					a: 40, 
+					a: 40,
 					b: 60
 				}, {
 					y: 'T',
-					a: 29, 
+					a: 29,
 					b: 71
 				}, {
 					y: 'W',
-					a: 44, 
+					a: 44,
 					b: 56
 				}, {
 					y: 'T',
-					a: 30, 
+					a: 30,
 					b: 70
 				}, {
 					y: 'F',
-					a: 60, 
+					a: 60,
 					b: 40
 				}, {
 					y: 'G',
-					a: 40, 
+					a: 40,
 					b: 60
 				}, {
 					y: 'S',
-					a: 46, 
+					a: 46,
 					b: 54
 				}],
 				xkey: 'y',
 				ykeys: ['a', 'b'],
 				labels: ['A', 'B'],
-				barColors: ['#EB8153', "#F1F3F7"],
+				barColors: ['#000066', "#F1F3F7"],
 				hideHover: 'auto',
 				gridLineColor: 'transparent',
 				resize: true,
 				barSizeRatio: 0.25,
-				stacked: true, 
+				stacked: true,
 				behaveLikeLine: true,
 				//redraw: true
-				
+
 				// barRadius: [6, 6, 0, 0]
 			});
-		
+
 		}
-		
+
 		var areaChart = function(){
 			//area chart
 			Morris.Area({
@@ -332,7 +332,7 @@
 
 
 				],
-				lineColors: ['#EB8153', 'rgb(16, 202, 147)', 'rgb(255, 92, 0)'],
+				lineColors: ['#000066', 'rgb(16, 202, 147)', 'rgb(255, 92, 0)'],
 				xkey: 'period',
 				ykeys: ['smartphone', 'windows', 'mac'],
 				labels: ['Phone', 'Windows', 'Mac'],
@@ -346,7 +346,7 @@
 
 			});
 		}
-		
+
 		var areaChart2 = function(){
 			if(jQuery('#morris_area_2').length > 0)
 			{
@@ -405,11 +405,11 @@
 					lineColors: ['rgb(0, 171, 197)', 'rgb(0, 0, 128)'],
 					resize: true
 
-				});	
+				});
 			}
 		}
-		
-		
+
+
 		/* Function ============ */
 		return {
 			init:function(){
@@ -422,8 +422,8 @@
 				areaChart();
 				areaChart2();
 			},
-			
-			
+
+
 			resize:function(){
 				screenWidth = $(window).width();
 				setChartWidth();
@@ -436,22 +436,22 @@
 				areaChart2();
 			}
 		}
-		
+
 	}();
 
 	jQuery(document).on('ready' , function(){
 		dzMorris.init();
 		dzMorris.resize();
-	
+
 	});
-		
+
 	jQuery(window).on('load',function(){
 		dzMorris.init();
 	});
-		
+
 	jQuery( window ).resize(function() {
 		dzMorris.resize();
 		dzMorris.init();
 	});
-   
+
 })(jQuery);
