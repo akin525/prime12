@@ -31,7 +31,7 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img src="images/logo-full.png" alt="">
+                                    <img src="{{asset('images/logo-full.png')}}" alt="">
                                 </div>
                                 <h4 class="text-center mb-4">Sign up your account</h4>
 
