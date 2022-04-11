@@ -131,7 +131,7 @@ class BillController
                         }
 
                     } else {
-                        $pop= $bt->amount;
+                        $pop= $fg->amount;
 
                         $resellerURL = 'https://mobile.primedata.com.ng/api/';
                         $curl = curl_init();
