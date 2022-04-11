@@ -50,7 +50,6 @@ class BillController
                 $bt = data::where("id", $request->productid)->get();
 //                $wallet = wallet::where('username', $user->username)->first();
 
-
                 $gt = $user->wallet - $request->amount;
 
 
@@ -132,6 +131,8 @@ class BillController
                         }
 
                     } else {
+                        $pop= $bt->amount;
+
                         $resellerURL = 'https://mobile.primedata.com.ng/api/';
                         $curl = curl_init();
 
@@ -146,7 +147,7 @@ class BillController
                             CURLOPT_SSL_VERIFYHOST => 0,
                             CURLOPT_SSL_VERIFYPEER => 0,
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => array('id'=>$request->id, 'productid'=>$request->productid, 'action' => 'data-topup', 'category_id' => $fg->cat_id, 'plan_id' => $fg->plan_id, 'contact_opt' => '2', 'number' => $request->number, 'amount'=>$request->amount),
+                            CURLOPT_POSTFIELDS => array('id'=>$request->id, 'productid'=>$request->productid, 'action' => 'data-topup', 'category_id' => $fg->cat_id, 'plan_id' => $fg->plan_id, 'contact_opt' => '2', 'number' => $request->number, 'amount'=>$pop),
                             CURLOPT_HTTPHEADER => array(
                                 'apikey: PRIME6251e00adbc770.70038796'
                             )));
