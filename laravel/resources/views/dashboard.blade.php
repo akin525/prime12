@@ -19,6 +19,15 @@
         </div>
     </div> -->
     <div class="container-fluid">
+        <div class='alert alert-info'>
+            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+            <i class='fa fa-ban-circle'></i><strong>Notification: </br></strong>Welcome Back {{"$user->username"}}
+        </div>
+        <div class='alert alert-info'>
+            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+            <i class='fa fa-ban-circle'></i><strong>Notification: </br></strong><b>{{$me->message}}</b>
+        </div>
+        <br>
         <div class="row">
             <div class="col-xl-4 col-sm-6 m-t35">
                 <div class="card card-coin">
