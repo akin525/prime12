@@ -26,6 +26,7 @@ class bo extends Authenticatable
         'phone',
         'refid',
         'discountamoun',
+        'token',
     ];
 
 

@@ -177,7 +177,7 @@ $pla=data::where('plan_id',  $request->network)->get();
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => array('refid' =>$request->refid,  'coded' => $tv->cat_id, 'number' => $request->number),
                     CURLOPT_HTTPHEADER => array(
-                        'apikey: PRIME624fee6e546747.77054028'
+                        'apikey: PRIME6251e00adbc770.70038796'
                     )
                 ));
 

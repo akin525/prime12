@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlltvController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\ElectController;
 use App\Http\Controllers\FundController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,10 @@ Route::get('referal', [AuthController::class, 'refer'])->name('referal');
 //Route::get('reseller', [ResellerController::class, 'sell'])->name('reseller');
 //Route::get('upgrade', [ResellerController::class, 'apiaccess'])->name('upgrade');
 Route::post('log', [AuthController::class, 'customLogin'])->name('log');
+Route::post('payelect', [ElectController::class, 'payelect'])->name('payelect');
+Route::post('verifye', [ElectController::class, 'verifyelect'])->name('verifye');
+Route::get('elect', [ElectController::class, 'electric'])->name('elect');
+Route::get('listelect', [ElectController::class, 'listelect'])->name('listelect');
 Route::get('listtv', [AlltvController::class, 'listtv'])->name('listtv');
 Route::get('tv', [AlltvController::class, 'tv'])->name('tv');
 Route::post('tvp', [AlltvController::class, 'paytv'])->name('tvp');

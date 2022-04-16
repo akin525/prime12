@@ -172,6 +172,12 @@
                     </a>
 
                 </li>
+                <li><a class="ai-icon" href="{{route('elect')}}" aria-expanded="false">
+                        <i class="flaticon-111-power-button"></i>
+                        <span class="nav-text">Pay Electricity</span>
+                    </a>
+
+                </li>
                 <li><a href="{{route('invoice')}}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-book"></i>
                         <span class="nav-text">Invoice</span>
