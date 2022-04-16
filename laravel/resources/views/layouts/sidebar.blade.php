@@ -166,6 +166,12 @@
                     </a>
 
                 </li>
+                <li><a class="ai-icon" href="{{route('tv')}}" aria-expanded="false">
+                        <i class="flaticon-381-television"></i>
+                        <span class="nav-text">Pay TV</span>
+                    </a>
+
+                </li>
                 <li><a href="{{route('invoice')}}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-book"></i>
                         <span class="nav-text">Invoice</span>
