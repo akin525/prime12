@@ -160,7 +160,7 @@
                     </a>
 
                 </li>
-                <li><a class="ai-icon" href="{{route('buydata')}}" aria-expanded="false">
+                <li><a class="ai-icon" href="{{route('select')}}" aria-expanded="false">
                         <i class="flaticon-381-network"></i>
                         <span class="nav-text">Buy Data</span>
                     </a>

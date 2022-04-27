@@ -19,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if (Auth()->user()) {
+        return redirect(route('dashboard'))
+            ->withSuccess('Signed in');
+
+    }else {
+        return view('auth.login');
+    }
 });
 
 //Route::get('/dashboard', function () {
@@ -38,13 +44,14 @@ Route::post('log', [AuthController::class, 'customLogin'])->name('log');
 Route::post('payelect', [ElectController::class, 'payelect'])->name('payelect');
 Route::post('verifye', [ElectController::class, 'verifyelect'])->name('verifye');
 Route::get('elect', [ElectController::class, 'electric'])->name('elect');
+Route::get('select', [AuthController::class, 'select'])->name('select');
 Route::get('listelect', [ElectController::class, 'listelect'])->name('listelect');
 Route::get('listtv', [AlltvController::class, 'listtv'])->name('listtv');
 Route::get('tv', [AlltvController::class, 'tv'])->name('tv');
 Route::post('tvp', [AlltvController::class, 'paytv'])->name('tvp');
 Route::post('verifytv', [AlltvController::class, 'verifytv'])->name('verifytv');
 Route::get('airtime', [AuthController::class, 'airtime'])->name('airtime');
-Route::get('buydata', [AuthController::class, 'buydata'])->name('buydata');
+Route::post('buydata', [AuthController::class, 'buydata'])->name('buydata');
 Route::post('pre', [AuthController::class, 'pre'])->name('pre');
 Route::post('bill', [BillController::class, 'bill'])->name('bill');
 Route::get('fund', [FundController::class, 'fund'])->name('fund');

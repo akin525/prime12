@@ -88,10 +88,13 @@ class AuthController
     }
     public function buydata(Request  $request)
     {
+//        return $request;
         if(Auth::check()){
             $user = User::find($request->user()->id);
-            $data = data::where('status',1 )->get();
+            $data = data::where(['status'=> 1 ])->where('network', $request->work)->get();
 
+
+//            return $data;
             return view('buydata', compact('user', 'data'));
         }
 
@@ -113,7 +116,12 @@ class AuthController
 
         return redirect("login")->withSuccess('You are not allowed to access');
     }
-    public function airtime(Request  $request)
+    public function select(Request  $request)
+    {
+        return view('select', compact('request'));
+
+    }
+        public function airtime(Request  $request)
     {
         if(Auth::check()){
             $user = User::find($request->user()->id);

@@ -39,17 +39,7 @@
 
         </h4>
         <br>
-        <style>
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-        </style>
-        <div class="card-body">
-            <div class="center">
-                <img    src="{{asset('images/re.jpg')}}" alt="#" />
-            </div>
-        </div>
+
 
         <br>
     </div>
