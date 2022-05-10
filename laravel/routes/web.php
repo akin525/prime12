@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ElectController;
 use App\Http\Controllers\FundController;
+use App\Http\Controllers\Updateuser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,8 @@ Route::get('referal', [AuthController::class, 'refer'])->name('referal');
 //Route::post('mp', [ResellerController::class, 'reseller'])->name('mp');
 //Route::get('reseller', [ResellerController::class, 'sell'])->name('reseller');
 //Route::get('upgrade', [ResellerController::class, 'apiaccess'])->name('upgrade');
+Route::get('profile', [Updateuser::class, 'profile'])->name('profile');
+Route::post('update2', [Updateuser::class, 'profile1'])->name('update2');
 Route::post('log', [AuthController::class, 'customLogin'])->name('log');
 Route::post('payelect', [ElectController::class, 'payelect'])->name('payelect');
 Route::post('verifye', [ElectController::class, 'verifyelect'])->name('verifye');

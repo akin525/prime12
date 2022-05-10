@@ -17,6 +17,38 @@ use App\Models\deposit;
 
 class AuthController
 {
+    public function updatepa(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'cpassword' => 'required',
+            'fpassword' => 'required',
+        ]);
+        if (Auth::check()) {
+            $user = User::find($request->user()->id);
+            $input= $request->all();
+            if ($request->cpassword != $request->fpassword){
+                $mes="New Password not match";
+
+                return view('changepass', compact('mes'));
+
+            }
+            if (!Hash::check($input['password'], $user->password)){
+                $mes= "current-password not match";
+                return view('changepass', compact('mes'));
+
+            } else {
+
+                $user->password =Hash::make($request->fpassword);
+                $user->save();
+                $mes1 = "Password update Successful";
+
+                return view('changepass', compact('mes1'));
+            }
+        }
+    }
+
+
     public function customLogin(Request $request)
     {
         $request->validate([
