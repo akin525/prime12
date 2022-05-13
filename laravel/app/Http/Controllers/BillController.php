@@ -132,6 +132,7 @@ class BillController
                         }
 
                     } else{
+                            $success=0;
                             $zo=$user->wallet+$request->amount;
                             $user->wallet = $zo;
                             $user->save();
