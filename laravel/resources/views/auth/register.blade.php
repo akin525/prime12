@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>AMn</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/log.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/dlog.jpeg')}}">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
@@ -31,7 +31,7 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img width="100" src="{{asset('images/log.png')}}" alt="">
+                                    <img width="100" src="{{asset('images/dlog.jpeg')}}" alt="">
                                 </div>
                                 <h4 class="text-center mb-4">Sign up your account</h4>
 

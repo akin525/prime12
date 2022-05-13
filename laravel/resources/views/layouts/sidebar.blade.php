@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>{{ Auth::user()->name }} Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/log.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/dlog.jpeg')}}">
     <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist.min.css')}}">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
@@ -53,7 +53,7 @@
     ***********************************-->
     <div class="nav-header">
         <a href="{{route('dashboard')}}" class="brand-logo">
-            <img width="50" src="{{asset('images/log.png')}}">
+            <img width="50" src="{{asset('images/dlog.jpeg')}}">
         </a>
 
         <div class="nav-control">
@@ -185,7 +185,7 @@
                 </li>
             </ul>
             <div class="copyright">
-                <p><strong>AWM Customer Dashboard</strong> © 2022 All Rights Reserved</p>
+                <p><strong>AMN Customer Dashboard</strong> © 2022 All Rights Reserved</p>
                 <p class="fs-12">Design<span class="heart"></span> by Primedata</p>
             </div>
         </div>

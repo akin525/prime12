@@ -88,6 +88,7 @@ class BillController
 
 //    return;
                         $data = json_decode($response, true);
+                        if (isset($data["success"])){
                         $success = $data["success"];
 //                        $tran1 = $data["discountAmount"];
 
@@ -130,7 +131,20 @@ class BillController
 
                         }
 
-                    } else {
+                    } else{
+                            $zo=$user->wallet+$request->amount;
+                            $user->wallet = $zo;
+                            $user->save();
+
+                            $name= $fg->plan;
+                            $am= "NGN $request->amount Was Refunded To Your Wallet";
+                            $ph=", Transaction fail";
+
+                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
+
+                        }
+
+                    }else {
                         $pop= $fg->amount;
 
                         $resellerURL = 'https://mobile.primedata.com.ng/api/';
