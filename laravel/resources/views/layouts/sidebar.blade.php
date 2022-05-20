@@ -186,7 +186,7 @@
             </ul>
             <div class="copyright">
                 <p><strong>AMN Customer Dashboard</strong> © 2022 All Rights Reserved</p>
-                <p class="fs-12">Design<span class="heart"></span> by Primedata</p>
+                <p class="fs-12">Design<span class="heart"></span> by PluralCanvas</p>
             </div>
         </div>
     </div>
