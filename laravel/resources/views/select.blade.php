@@ -24,7 +24,7 @@
                     </select>
 
                     <br>
-                    <button type="submit" class=" btn" style="color: white;background-color: #ff0066">Click Next</button>
+                    <button type="submit" class=" btn btn-primary" >Click Next</button>
                 </form>
         </center>
         <br>

@@ -2,7 +2,8 @@
 /*
     Table of Contents
 
-    Name                 : Zenix
+    Name
+         : Zenix
     Author               : DexignZone
     Author Portfolio     : https://themeforest.net/user/dexignzone/portfolio
 
@@ -73,8 +74,8 @@
 @import url(../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(../vendor/metismenu/css/metisMenu.min.css);
 :root {
-  --primary: #000066;
-  --secondary: #6418C3;
+  --primary: #0047AB;
+  --secondary: #2875e0;
   --primary-hover: #e66025;
   --primary-light: #fbe5dc;
   --primary-dark: #943911;
