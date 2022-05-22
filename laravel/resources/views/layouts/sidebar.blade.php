@@ -153,6 +153,17 @@
                         <span class="nav-text">Fund Wallet</span>
                     </a>
                 </li>
+
+                <li><a class="ai-icon" href="{{route('profile')}}" aria-expanded="false">
+                        <i class="flaticon-153-user"></i>
+                        <span class="nav-text">My Account</span>
+                    </a>
+                </li>
+                <li><a class="ai-icon" href="{{route('changepass')}}" aria-expanded="false">
+                        <i class="flaticon-006-key"></i>
+                        <span class="nav-text">Change Password</span>
+                    </a>
+                </li>
                 <li class="nav-label">Products</li>
                 <li><a class="ai-icon" href="{{route('airtime')}}" aria-expanded="false">
                         <i class="flaticon-136-phone-call"></i>

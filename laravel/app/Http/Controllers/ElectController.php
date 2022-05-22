@@ -93,11 +93,12 @@ class ElectController
             curl_close($curl);
 //            return $response;
             $data = json_decode($response, true);
-            $success= $data["success"];
-            $name=$data["data"];
-            if ($success = 1){
+            if (isset($data["success"])){
+                $success= $data["success"];
+                $name=$data["data"];
                 $log=$name;
             }else{
+                $name="";
                 $log= "Unable to Identify meter Number";
             }
             $success=null;

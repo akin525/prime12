@@ -96,8 +96,8 @@ $pla=data::where('plan_id',  $request->network)->get();
 //        echo $response;
 //return $response;
         $data = json_decode($response, true);
-        $success= $data["message"];
-        if ($success){
+        if (isset($data['message'])){
+            $success= $data["message"];
             $log=$success;
         }else{
             $log= "Unable to Identify IUC Number";

@@ -6,6 +6,7 @@ use App\Http\Controllers\BillController;
 use App\Http\Controllers\ElectController;
 use App\Http\Controllers\FundController;
 use App\Http\Controllers\Updateuser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +29,14 @@ Route::get('/', function () {
         return view('auth.login');
     }
 });
-
+Route::middleware(['auth'])->group(function () {
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
-
+Route::get('changepass', function () {
+    return view('changepass');
+})->name('changepass');
+Route::post('pass', [Updateuser::class, 'updatepa'])->name('pass');
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 Route::get('invoice', [AuthController::class, 'invoice'])->name('invoice');
 Route::get('charges', [AuthController::class, 'charges'])->name('charges');
@@ -59,4 +63,5 @@ Route::post('pre', [AuthController::class, 'pre'])->name('pre');
 Route::post('bill', [BillController::class, 'bill'])->name('bill');
 Route::get('fund', [FundController::class, 'fund'])->name('fund');
 Route::get('tran/{reference}', [FundController::class, 'tran'])->name('tran');
+});
 require __DIR__.'/auth.php';
