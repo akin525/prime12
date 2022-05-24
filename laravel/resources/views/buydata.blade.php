@@ -25,9 +25,14 @@
                                 @endforeach
 
                     </select>
-                    <button type="submit" class=" btn" style="color: white;background-color: #095b0d"> Next</button>
+
+                    <br>
+                    <button type="submit" class=" btn" style="color: white;background-color: #095b0d"> Click Next</button>
                 </form>
+                <br>
         </center>
+        <p>You can use the codes below to check your data balance  </p>
+
         <h4 class="btn-info">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-success">MTN [SME]     *461*4#  </li>
