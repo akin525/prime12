@@ -117,17 +117,19 @@
                 <div class="d-flex align-items-center flex-wrap mr-auto">
                     <h5 class="dashboard_bar">Dashboard</h5>
                 </div>
-                <div class="d-flex align-items-center">
-                    <a href="javascript:void(0);" class="btn btn-xs btn-primary light mr-1">Today</a>
-                    <a href="javascript:void(0);" class="btn btn-xs btn-primary light mr-1">Month</a>
-                    <a href="javascript:void(0);" class="btn btn-xs btn-primary light">Year</a>
+
+                <!--    <div class="d-flex align-items-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary light mr-1">Today</a>
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary light mr-1">Month</a>
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary light">Year</a>
+                    </div> -->
+
                 </div>
             </div>
         </div>
-    </div>
-    <!--**********************************
-        Header end ti-comment-alt
-    ***********************************-->
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
 
     <!--**********************************
         Sidebar start

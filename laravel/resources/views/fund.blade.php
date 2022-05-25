@@ -50,7 +50,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Save More</h4>
+                                        <h4 class="card-title">Enter Amount</h4>
                                         <!--                        --><?php
                                         //                        if($_SERVER['REQUEST_METHOD'] == 'POST'){
                                         //
