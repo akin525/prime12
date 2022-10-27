@@ -12,13 +12,13 @@
     <meta name="robots" content="" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Buy Data, Airtime, Pay TV, Pay Electricity Conveniently!" />
-    <meta property="og:title" content="Zenix - Crypto Admin Dashboard" />
-    <meta property="og:description" content="Zenix - Crypto Admin Dashboard" />
-    <meta property="og:image" content="../../zenix.dexignzone.com/xhtml/social-image.png" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
     <meta name="format-detection" content="telephone=no">
     <title>{{ Auth::user()->name }} Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/dlog.jpeg')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://app.amntopup.com/images/dlog.jpeg">
     <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist.min.css')}}">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">

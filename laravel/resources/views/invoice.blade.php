@@ -26,6 +26,7 @@
                                         <th>Phone No</th>
                                         <th>Payment_Ref</th>
                                         <th>Token</th>
+                                        <th>Status</th>
                                         <!--                                                    <th>Action</th>-->
                                     </tr>
                                     </thead>
@@ -39,6 +40,14 @@
                                             <td>{{$re->phone}}</td>
                                             <td>{{$re->refid}}</td>
                                             <td>{{$re->token}}</td>
+                                            <td>
+                                                @if($re->status==0)
+                                                    <span class="badge badge-warning">pending</span>
+                                                @else
+                                                    <span class="badge badge-success">Successful</span>
+                                                @endif
+
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
