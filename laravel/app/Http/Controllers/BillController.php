@@ -32,9 +32,8 @@ class BillController
 
             if ($user->wallet < $request->amount) {
                 $mg = "You Cant Make Purchase Above" . "NGN" . $request->amount . " from your wallet. Your wallet balance is NGN $user->wallet. Please Fund Wallet And Retry or Pay Online Using Our Alternative Payment Methods.";
-
-                return view('bill', compact('user', 'mg'));
-
+                Alert::error('Ooops..', $mg);
+                return redirect('select');
             }
             if ($request->amount < 0) {
 
