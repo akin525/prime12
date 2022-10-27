@@ -11,23 +11,52 @@
         </div>
         <center>
             <div class="btn-controls">
-                <form action="{{ route('pre') }}" method="post">
+                <form action="{{ route('bill') }}" method="post">
                     @csrf
+                    <script>
+                        function myNewFunction(sel) {
+                            // alert(sel.options[sel.selectedIndex].id);
+                            document.getElementById("po").value = (sel.options[sel.selectedIndex].id);
+                            document.getElementById("pk").value = (sel.options[sel.selectedIndex].text);
+                        }
+                    </script>
                     <label for="network" class=" requiredField">
                         Choose Network<span class="asteriskField">*</span>
                     </label>
-                    <select  name="id" class="text-success form-control" required="">
+                    <select  name="name" class="text-success form-control" onChange="myNewFunction(this);" required="">
                         <option value="">---------</option>
                         @foreach($data as $datas)
 
-                                <option value="{{$datas->id}}">{{$datas->network}}{{$datas->plan}}{{$datas->tamount}}
+                                <option value="{{$datas->plan_id}}" id="{{$datas->tamount}}" >{{$datas->network}}{{$datas->plan}}
                                 </option>
                                 @endforeach
 
                     </select>
 
                     <br>
-                    <button type="submit" class=" btn" style="color: white;background-color: #095b0d"> Click Next</button>
+                    <label for="network" class=" requiredField">
+                        Amount<span class="asteriskField">*</span>
+                    </label>
+                    <input name="amount" class="text-success form-control" value="" placeholder="Amount" id="po" readonly>
+                    <br>
+                    <input type="hidden" name="refid" value="<?php echo rand(10000000, 999999999); ?>">
+
+                    <label for="network" class=" requiredField">
+                        Enter Phone no<span class="asteriskField">*</span>
+                    </label>
+                    <input type="number" name="number" class="form-control" required>
+                    <br>
+
+                    <button type="submit" class=" btn" style="color: white;background-color: #095b0d"> Click Next<span class="load loading"></span>
+                    </button>
+                    <script>
+                        const btns = document.querySelectorAll('button');
+                        btns.forEach((items)=>{
+                            items.addEventListener('click',(evt)=>{
+                                evt.target.classList.add('activeLoading');
+                            })
+                        })
+                    </script>
                 </form>
                 <br>
         </center>

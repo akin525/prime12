@@ -43,7 +43,16 @@
                                     </div>
                                     {{--                                        <button id="btnv" type="button" onclick="showUser()" class="btn btn-rounded btn-success"> Verify </button>--}}
                                     <button type="submit" class="btn mt-3"
-                                            style="color: white;background-color: #048047"> Continue </button>
+                                            style="color: white;background-color: #048047"> Continue <span class="load loading"></span>
+                                    </button>
+                                    <script>
+                                        const btns = document.querySelectorAll('button');
+                                        btns.forEach((items)=>{
+                                            items.addEventListener('click',(evt)=>{
+                                                evt.target.classList.add('activeLoading');
+                                            })
+                                        })
+                                    </script>
                                     </form>
                                 </div>
                             </div>

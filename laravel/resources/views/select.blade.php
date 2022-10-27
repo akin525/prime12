@@ -17,14 +17,27 @@
                     </label>
                     <select  name="work" class="text-success form-control" required="">
                         <option value="MTN">MTN</option>
+                        <option value="MTN_CG">MTN_CG</option>
+                        <option value="MTN_DG">MTN_DG</option>
                         <option value="GLO">GLO</option>
                         <option value="9MOBILE">9MOBILE</option>
-                        <option value="AIRTEL">AIRTEL</option>
+                        <option value="AIRTEL_DG">AIRTEL_DG</option>
+                        <option value="AIRTEL_CG">AIRTEL_CG</option>
 
                     </select>
 
                     <br>
-                    <button type="submit" class=" btn btn-primary" >Click Next</button>
+                    <button type="submit" class=" btn btn-primary" >Click Next <span class="load loading"></span>
+                    </button>
+                    <script>
+                        const btns = document.querySelectorAll('button');
+                        btns.forEach((items)=>{
+                            items.addEventListener('click',(evt)=>{
+                                evt.target.classList.add('activeLoading');
+                            })
+                        })
+                    </script>
+
                 </form>
         </center>
         <br>

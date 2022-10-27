@@ -141,7 +141,7 @@ class AuthController
         ]);
         if(Auth::check()){
             $user = User::find($request->user()->id);
-            $data = data::where('id',$request->id )->get();
+            $data = data::where('network',$request->id )->get();
 
             return view('pre', compact('user', 'data'));
         }

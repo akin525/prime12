@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AirtimeController;
 use App\Http\Controllers\AlltvController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
@@ -29,13 +30,14 @@ Route::get('/', function () {
         return view('auth.login');
     }
 });
+Route::get('changepass', function () {
+    return view('changepass');
+})->name('changepass');
 Route::middleware(['auth'])->group(function () {
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
-Route::get('changepass', function () {
-    return view('changepass');
-})->name('changepass');
+
 Route::post('pass', [Updateuser::class, 'updatepa'])->name('pass');
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 Route::get('invoice', [AuthController::class, 'invoice'])->name('invoice');
@@ -58,6 +60,7 @@ Route::get('tv', [AlltvController::class, 'tv'])->name('tv');
 Route::post('tvp', [AlltvController::class, 'paytv'])->name('tvp');
 Route::post('verifytv', [AlltvController::class, 'verifytv'])->name('verifytv');
 Route::get('airtime', [AuthController::class, 'airtime'])->name('airtime');
+Route::post('buyairtime', [AirtimeController::class, 'airti'])->name('buyairtime');
 Route::post('buydata', [AuthController::class, 'buydata'])->name('buydata');
 Route::post('pre', [AuthController::class, 'pre'])->name('pre');
 Route::post('bill', [BillController::class, 'bill'])->name('bill');

@@ -10,6 +10,7 @@ use App\Models\setting;
 use App\Models\wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,8 @@ class BillController
     public function bill(Request $request)
     {
         $request->validate([
-            'productid' => 'required',
+            'name' => 'required',
+            'number' => ['required', 'string',  'min:11', 'max:11'],
         ]);
         if (Auth::check()) {
             $user = User::find($request->user()->id);
@@ -37,29 +39,36 @@ class BillController
             if ($request->amount < 0) {
 
                 $mg = "error transaction";
-                return view('bill', compact('user', 'mg'));
-
+                Alert::error('Ooops..', $mg);
+                return redirect('select');
             }
-            $bo = bo::where('refid', $request->id)->first();
+            $bo = bo::where('refid', $request->refid)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
-                return view('bill', compact('user', 'mg'));
+                Alert::error('Ooops..', $mg);
+                return redirect('select');
 
             } else {
                 $user = User::find($request->user()->id);
-                $bt = data::where("id", $request->productid)->get();
-//                $wallet = wallet::where('username', $user->username)->first();
+                $bt = data::where("plan_id", $request->name)->first();
 
-                $gt = $user->wallet - $request->amount;
+                $gt = $user->wallet - $bt->tamount;
 
 
                 $user->wallet= $gt;
                 $user->save();
 
-                foreach ($bt as $fg) {
-
-                    if ($fg->plan == "airtime") {
-
+                        $pop= $bt->amount;
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => $bt->plan,
+                    'amount' => $bt->tamount,
+                    'server_res' =>'null',
+                    'result' => 1,
+                    'phone' => $request->number,
+                    'refid' => $request->refid,
+                    'status' => 0,
+                ]);
                         $resellerURL = 'https://mobile.primedata.com.ng/api/';
                         $curl = curl_init();
 
@@ -74,95 +83,7 @@ class BillController
                             CURLOPT_SSL_VERIFYHOST => 0,
                             CURLOPT_SSL_VERIFYPEER => 0,
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => array('id'=>$request->id, 'productid'=>$request->productid, 'service' => 'airtime', 'coded' => $fg->cat_id, 'number' => $request->number, 'amount' => $request->amount, 'reseller_price' => $request->amount),
-
-                            CURLOPT_HTTPHEADER => array(
-                                'apikey: PRIME6251e00adbc770.70038796'
-                            )));
-
-                        $response = curl_exec($curl);
-
-                        curl_close($curl);
-//                    echo $response;
-//                        return $response;
-
-//    return;
-                        $data = json_decode($response, true);
-                        if (isset($data["success"])){
-                        $success = $data["success"];
-//                        $tran1 = $data["discountAmount"];
-
-                        if ($success==1) {
-
-                            $bo = bo::create([
-                                'username' => $user->username,
-                                'plan' => $fg->plan,
-                                'amount' => $request->amount,
-                                'server_res' => 'null',
-                                'result' => $success,
-                                'phone' => $request->number,
-                                'refid' => $request->id,
-                            ]);
-
-
-
-                            $name= $fg->plan;
-                            $am= "NGN $request->amount  Airtime Purchase Was Successful To";
-                            $ph= $request->number;
-
-                            $receiver=$user->email;
-                            $admin= 'admin@primedata.com.ng';
-
-//                            Mail::to($receiver)->send(new Emailtrans($bo ));
-//                            Mail::to($admin)->send(new Emailtrans($bo ));
-
-                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
-                        }elseif ($success==0){
-                            $zo=$user->wallet+$request->amount;
-                            $user->wallet = $zo;
-                            $user->save();
-
-                            $name= $fg->plan;
-                            $am= "NGN $request->amount Was Refunded To Your Wallet";
-                            $ph=", Transaction fail";
-
-                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
-                        }
-
-                    } else{
-                            $success=0;
-                            $zo=$user->wallet+$request->amount;
-                            $user->wallet = $zo;
-                            $user->save();
-
-                            $name= $fg->plan;
-                            $am= "NGN $request->amount Was Refunded To Your Wallet";
-                            $ph=", Transaction fail";
-
-                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
-                        }
-
-                    }else {
-                        $pop= $fg->amount;
-
-                        $resellerURL = 'https://mobile.primedata.com.ng/api/';
-                        $curl = curl_init();
-
-                        curl_setopt_array($curl, array(
-                            CURLOPT_URL =>  $resellerURL . 'bill',
-                            CURLOPT_RETURNTRANSFER => true,
-                            CURLOPT_ENCODING => '',
-                            CURLOPT_MAXREDIRS => 10,
-                            CURLOPT_TIMEOUT => 0,
-                            CURLOPT_FOLLOWLOCATION => true,
-                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                            CURLOPT_SSL_VERIFYHOST => 0,
-                            CURLOPT_SSL_VERIFYPEER => 0,
-                            CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => array('id'=>$request->id, 'productid'=>$request->productid, 'action' => 'data-topup', 'category_id' => $fg->cat_id, 'plan_id' => $fg->plan_id, 'contact_opt' => '2', 'number' => $request->number, 'amount'=>$pop),
+                            CURLOPT_POSTFIELDS => array('code'=>$request->name, 'refid'=>$request->refid, 'amount'=>$bt->ramount,  'number' => $request->number),
                             CURLOPT_HTTPHEADER => array(
                                 'apikey: PRIME6251e00adbc770.70038796'
                             )));
@@ -179,27 +100,19 @@ class BillController
 
                         $success = $data["success"];
 //                        $msg2 = $data['msg'];
-                        $po =$request->amount  - $fg->amount;
+                        $po =$bt->tamount  - $bt->ramount;
 
                         if ($success ==1){
-                            $bo = bo::create([
-                                'username' => $user->username,
-                                'plan' => $fg->plan,
-                                'amount' => $request->amount,
-                                'server_res' =>'null',
-                                'result' => $success,
-                                'phone' => $request->number,
-                                'refid' => $request->id,
-                            ]);
-
+                            $bo->status=1;
+                            $bo->save();
                             $profit = profit::create([
                                 'username' => $user->username,
-                                'plan' => $fg->plan,
+                                'plan' => $bt->plan,
                                 'amount' => $po,
                             ]);
 
-                            $name= $fg->plan;
-                            $am= "$fg->plan  was successful delivered to";
+                            $name= $bt->plan;
+                            $am= "$bt->plan  was successful delivered to";
                             $ph= $request->number;
 
 
@@ -208,25 +121,23 @@ class BillController
 
 //                            Mail::to($receiver)->send(new Emailtrans($bo ));
 //                            Mail::to($admin)->send(new Emailtrans($bo ));
-                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
+                            Alert::success('Successful', $am.$ph);
+                            return redirect('select');
                         }elseif ($success==0){
                             $zo=$user->wallet+$request->amount;
                             $user->wallet = $zo;
                             $user->save();
 
-                            $name= $fg->plan;
+                            $name= $bt->plan;
                             $am= "NGN $request->amount Was Refunded To Your Wallet";
                             $ph=", Transaction fail";
 
-                            return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
+                            Alert::error('Ooops..', $name.$am.$ph);
+                            return redirect('select');
 
                         }
 
 
-                    }
-                }
             }
         }
 

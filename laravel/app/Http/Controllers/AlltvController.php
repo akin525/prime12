@@ -12,6 +12,7 @@ use App\Models\wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AlltvController
 {
@@ -22,38 +23,40 @@ class AlltvController
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://mobile.primedata.com.ng/api/listtv',
+            CURLOPT_URL => 'https://app2.mcd.5starcompany.com.ng/api/reseller/list',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_POSTFIELDS => array(),
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array('service' => 'tv'),
             CURLOPT_HTTPHEADER => array(
-                'apikey: PRIME624fee6e546747.77054028'
+                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
             ),
         ));
 
         $response = curl_exec($curl);
 
         curl_close($curl);
-//        return $response;
+        echo $response;
         $data = json_decode($response, true);
         $plan= $data["data"];
         foreach ($plan as $pla) {
-            $id = $pla['plan_id'];
-            $name = $pla['network'];
+            $id = $pla['type'];
+            $name = $pla['name'];
             $amount = $pla['amount'];
-            $code = $pla['cat_id'];
-//return $response;
+            $code = $pla['code'];
+return $response;
             $bo = data::create([
-                'plan_id' => $id,
-                'plan' => 'tv',
-                'network' => $name,
+                'plan_id' => $code,
+                'code' => $code,
+                'plan' => $name,
+                'network' => $id,
                 'amount' => $amount,
                 'tamount' => $amount,
+                'ramount' => $amount,
                 'cat_id' => $code,
             ]);
         }
@@ -62,11 +65,11 @@ class AlltvController
     public function verifytv(Request $request)
     {
 //        return $request;
-        $ve=data::where('plan_id', $request->network)->first();
+        $ve=data::where('network', $request->network)->first();
 //        return $request;
-$pla=data::where('plan_id',  $request->network)->get();
+$pla=data::where('network',  $request->network)->get();
 //return $ve;
-        $resellerURL='https://mobile.primedata.com.ng/api/';
+        $resellerURL='https://app2.mcd.5starcompany.com.ng/api/reseller/';
 
 
         $curl = curl_init();
@@ -74,7 +77,7 @@ $pla=data::where('plan_id',  $request->network)->get();
 
         curl_setopt_array($curl, array(
 
-            CURLOPT_URL => $resellerURL.'verifytv',
+            CURLOPT_URL => $resellerURL.'validate',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -84,9 +87,9 @@ $pla=data::where('plan_id',  $request->network)->get();
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => 0,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array('productid' => $ve->plan_id,  'number' => $request->phone),
+            CURLOPT_POSTFIELDS => array('service' => 'tv', 'coded' =>$request->network, 'phone' => $request->phone),
             CURLOPT_HTTPHEADER => array(
-                'apikey: PRIME624fee6e546747.77054028'
+                'Authorization: MCDKEY_903sfjfi0ad833mk8537dhc03kbs120r0h9a'
             )
         ));
 
@@ -98,7 +101,7 @@ $pla=data::where('plan_id',  $request->network)->get();
         $data = json_decode($response, true);
         if (isset($data['message'])){
             $success= $data["message"];
-            $log=$success;
+            $log=$data['data'];
         }else{
             $log= "Unable to Identify IUC Number";
         }
@@ -106,18 +109,7 @@ $pla=data::where('plan_id',  $request->network)->get();
 
 
     }
-//    public function process(Request $request)
-//    {
-//        if (Auth::check()) {
-//            $user = User::find($request->user()->id);
-//            $tv = data::where('id', $request->id)->first();
-//
-//            return  view('tvp', compact('user', 'request'));
-//
-//        }
-//        return redirect("login")->withSuccess('You are not allowed to access');
-//
-//    }
+
     public function tv(Request $request)
     {
         if (Auth::check()) {
@@ -133,6 +125,10 @@ $pla=data::where('plan_id',  $request->network)->get();
 
     public function paytv(Request $request)
     {
+        $request->validate([
+            'id'=>'required',
+            'number'=>'required',
+        ]);
         if (Auth::check()) {
             $user = User::find($request->user()->id);
             $tv = data::where('id', $request->id)->first();
@@ -141,26 +137,36 @@ $pla=data::where('plan_id',  $request->network)->get();
             if ($user->wallet < $tv->tamount) {
                 $mg = "You Cant Make Purchase Above" . "NGN" . $tv->tamount . " from your wallet. Your wallet balance is NGN $user->wallet. Please Fund Wallet And Retry or Pay Online Using Our Alternative Payment Methods.";
 
-                return view('bill', compact('user', 'mg'));
-
+                Alert::error('Ooops..', $mg);
+                return redirect('tv');
             }
             if ($tv->tamount < 0) {
 
                 $mg = "error transaction";
-                return view('bill', compact('user', 'mg'));
-
+                Alert::error('Ooops..', $mg);
+                return redirect('tv');
             }
             $bo = bo::where('refid', $request->refid)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
-                return view('bill', compact('user', 'mg'));
-
+                Alert::success('Ooops..', $mg);
+                return redirect('tv');
             } else {
                 $gt = $user->wallet - $tv->tamount;
 
 
                 $user->wallet = $gt;
                 $user->save();
+
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => $tv->network,
+                    'amount' => $tv->tamount,
+                    'server_res' => 'oooo',
+                    'result' => 1,
+                    'phone' => $request->number,
+                    'refid' => $request->refid,
+                ]);
 
                 $resellerURL = 'https://mobile.primedata.com.ng/api/';
 
@@ -193,17 +199,7 @@ $pla=data::where('plan_id',  $request->network)->get();
 //                        return $response;
                 if (isset($data['am'])) {
 
-                    $bo = bo::create([
-                        'username' => $user->username,
-                        'plan' => $tv->network,
-                        'amount' => $tv->tamount,
-                        'server_res' => $response,
-                        'result' => 1,
-                        'phone' => $request->number,
-                        'refid' => $request->refid,
-                    ]);
 
-$success=1;
                     $name = $tv->plan;
                     $am = $tv->network."was Successful to";
                     $ph = $request->number;

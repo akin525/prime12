@@ -7,6 +7,7 @@ use App\Models\data;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AirtimeController
 
@@ -14,7 +15,9 @@ class AirtimeController
     public function airti(Request $request)
     {
         $request->validate([
-            'productid' => 'required',
+            'name' => 'required',
+            'number' => ['required', 'string',  'min:11', 'max:11'],
+            'amount' => ['required', 'string',  'min:3', 'max:4'],
         ]);
         if (Auth::check()) {
             $user = User::find($request->user()->id);
@@ -23,37 +26,46 @@ class AirtimeController
 
             if ($user->wallet < $request->amount) {
                 $mg = "You Cant Make Purchase Above" . "NGN" . $request->amount . " from your wallet. Your wallet balance is NGN $user->wallet. Please Fund Wallet And Retry or Pay Online Using Our Alternative Payment Methods.";
-
-                return view('bill', compact('user', 'mg'));
+                Alert::error('Ooops..', $mg);
+                return  back();
 
             }
             if ($request->amount < 0) {
 
                 $mg = "error transaction";
-                return view('bill', compact('user', 'mg'));
-
+                Alert::error('Ooops..', $mg);
+                return  back();
             }
-            $bo = bo::where('refid', $request->id)->first();
+            $bo = bo::where('refid', $request->refid)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
-                return view('bill', compact('user', 'mg'));
-
+                Alert::success('Ooops..', $mg);
+                return  back();
             } else {
                 $user = User::find($request->user()->id);
                 $bt = data::where("id", $request->productid)->first();
-//                $wallet = wallet::where('username', $user->username)->first();
-
                 $gt = $user->wallet - $request->amount;
 
 
                 $user->wallet = $gt;
                 $user->save();
 
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => $request->name.' Airtime',
+                    'amount' => $request->amount,
+                    'server_res' => 'null',
+                    'result' => 1,
+                    'phone' => $request->number,
+                    'refid' => $request->id,
+                    'status'=>0,
+                ]);
+
                 $resellerURL = 'https://mobile.primedata.com.ng/api/';
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(
-                    CURLOPT_URL => $resellerURL . 'bill',
+                    CURLOPT_URL => $resellerURL . 'airtime',
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => '',
                     CURLOPT_MAXREDIRS => 10,
@@ -63,7 +75,7 @@ class AirtimeController
                     CURLOPT_SSL_VERIFYHOST => 0,
                     CURLOPT_SSL_VERIFYPEER => 0,
                     CURLOPT_CUSTOMREQUEST => 'POST',
-                    CURLOPT_POSTFIELDS => array('id' => $request->id, 'productid' => $request->productid, 'service' => 'airtime', 'coded' => $bt->cat_id, 'number' => $request->number, 'amount' => $request->amount, 'reseller_price' => $request->amount),
+                    CURLOPT_POSTFIELDS => array('name' => $request->name, 'refid' => $request->refid, 'amount' =>$request->amount,  'number' => $request->number),
                     CURLOPT_HTTPHEADER => array(
                         'apikey: PRIME6251e00adbc770.70038796'
                     )));
@@ -81,19 +93,12 @@ class AirtimeController
 
                 if ($success == 1) {
 
-                    $bo = bo::create([
-                        'username' => $user->username,
-                        'plan' => $bt->plan,
-                        'amount' => $request->amount,
-                        'server_res' => 'null',
-                        'result' => $success,
-                        'phone' => $request->number,
-                        'refid' => $request->id,
-                    ]);
+                    $bo->status=1;
+                    $bo->save();
 
 
-                    $name = $fg->plan;
-                    $am = "NGN $request->amount  Airtime Purchase Was Successful To";
+                    $name = $bo->plan;
+                    $am = " NGN $request->amount  Airtime Purchase Was Successful To ";
                     $ph = $request->number;
 
                     $receiver = $user->email;
@@ -101,9 +106,8 @@ class AirtimeController
 
 //                            Mail::to($receiver)->send(new Emailtrans($bo ));
 //                            Mail::to($admin)->send(new Emailtrans($bo ));
-
-                    return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
+                    Alert::success('Successful', $name.$am.$ph);
+                    return back();
                 } elseif ($success == 0) {
                     $zo = $user->wallet + $request->amount;
                     $user->wallet = $zo;
@@ -112,9 +116,8 @@ class AirtimeController
                     $name = $bt->plan;
                     $am = "NGN $request->amount Was Refunded To Your Wallet";
                     $ph = ", Transaction fail";
-
-                    return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
-
+                    Alert::error('Ooops..', $name.$am.$ph);
+                    return back();
                 }
 
             }

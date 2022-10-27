@@ -45,7 +45,7 @@
                                             <select  name="id" class="form-control" required>
                                                 <option>Select</option>
                                                 @foreach($pla as $plan)
-                                                    <option value="{{$plan->id}}">{{$plan->network}}</option>
+                                                    <option value="{{$plan->id}}">{{$plan->plan}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
